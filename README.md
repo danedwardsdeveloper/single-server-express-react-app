@@ -21,6 +21,29 @@ _API route on the same site_
 -  _Don't use create-react-app. It's not maintained and full of errors._
 -  _You don't need to move the build folder_
 
+### File Tree
+
+```
+express-react-server/
+├── client/
+│ ├── build
+│ ├── node_modules
+│ ├── public/
+│ │ └── index.html
+│ ├── src/
+│ │ ├── index.js
+│ │ └── components/
+│ │ └── ...
+│ ├── package.json
+│ └── package-lock.json
+├── index.js (server)
+├── node_modules
+├── Procfile
+├── package.json
+├── package-lock.json
+└── .gitignore
+```
+
 ### Step 1: Set Up the Express Server
 
 1. **Initialize the Project**
