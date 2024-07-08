@@ -9,11 +9,17 @@ A very simple Express server with one route that also serves a React app. I mana
 -  Easy handling of session token/cookies/JWTs
 -  Only one repo to manage
 
+<hr>
+
 ![Single-server Express React app](/github-images/App.webp)
 _A very unimpressive web app_
 
+<hr>
+
 ![Single-server Express React app](/github-images/API.webp)
 _API route on the same site_
+
+<hr>
 
 **Instructions from ChatGPT, minus a couple of mistakes:**
 
