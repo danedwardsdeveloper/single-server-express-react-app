@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+require('dotenv').config();
+
 const port = process.env.PORT || 8080;
+const nodeEnv = process.env.NODE_ENV;
+console.log(nodeEnv);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, 'client/build')));
