@@ -28,6 +28,17 @@ I'm using a Vite template to create the front-end, as `create-react-app` is no l
 npm create vite@latest client -- --template react-ts
 ```
 
+-  Change the local development server port by adding a server object to `vite.config.ts`:
+
+   ```ts
+   export default defineConfig({
+   	plugins: [react()],
+   	server: {
+   		port: 8080,
+   	},
+   });
+   ```
+
 -  Update `settings.json`
    -  Add a proxy
    -  Check start/build will work with Heroku
