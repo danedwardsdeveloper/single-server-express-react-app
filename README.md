@@ -60,13 +60,41 @@ express-react-server/
    npm init -y
    ```
 
-2. **Install Express**
+2. **Create/edit config files**
+
+Make sure to ignore both node_modules folders
+
+```
+# .gitignore
+
+.env
+node_modules/
+client/node_modules/
+/client/build
+```
+
+Add a script to start the Express server
+
+```json
+// project-root/package.json
+		"start": "nodemon server/index.js",
+```
+
+Create an environment variables file to handle different environments
+
+```
+// .env
+
+NODE_ENV=development
+```
+
+3. **Install Express**
 
    ```sh
    npm install express
    ```
 
-3. **Create the Express Server**
+4. **Create the Express Server**
    Create a file named `index.js` and add the following code:
 
    ```javascript
@@ -136,7 +164,24 @@ express-react-server/
    npm install react react-dom
    ```
 
-2. **Create React App Files**
+2. **Configure `client/package.json`**
+
+   ```
+   {
+      "name": "client",
+      "version": "1.0.0",
+      "main": "index.js",
+      // Add a proxy for local development
+      "proxy": "http://localhost:8080",
+      "scripts": {
+         "build": "react-scripts build",
+         "start": "react-scripts start",
+         "test": "echo \"Error: no test specified\" && exit 1"
+      }
+   }
+   ```
+
+3. **Create React App Files**
 
    -  **`client/public/index.html`**
 
@@ -190,7 +235,7 @@ express-react-server/
       ReactDOM.render(<App />, document.getElementById('root'));
       ```
 
-3. **Build the React App**
+4. **Build the React App**
 
    -  Add a `build` script to your `client/package.json`:
       ```json
@@ -202,12 +247,19 @@ express-react-server/
       ```
    -  Note: If not using Create React App, you will need to set up a build system like Webpack manually. For simplicity, let's assume you're using the basic configuration.
 
-4. **Build the App**
+5. **Build the App**
    ```sh
    npm run build
    ```
 
-### Step 4: Deploy to Heroku
+### Serve locally
+
+In development, you can serve the API and app in two different ways
+
+1. **With one terminal command**
+   Open the terminal at the project root, and
+
+### Deploy to Heroku
 
 1. **Create a `Procfile`**
 
