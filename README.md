@@ -1,5 +1,13 @@
 # single-server-express-react-app
 
+## To-Do List
+
+-  [ ] Ensure seamless transition from local development to Heroku deployment.
+   -
+-  [ ] Implement TypeScript compiling
+-  [ ] Update this readme very carefully so that everything is accurate
+-  [ ] Turn this into an article on my blog because this has been very annoying to figure out and it's also the foundation of pretty much all my projects
+
 A very simple Express server with one route that also serves a React app. I managed to create this in 10 minutes and deploy it to Heroku perfectly first time! The data (a list of exotic animals) isn't hardcoded - it's being fetched from the API on the same site. My example is extremely unimpressive, but the possibilities are huge! Very excited about this!
 
 **Benefits**
