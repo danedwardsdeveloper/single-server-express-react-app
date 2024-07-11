@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 require('dotenv').config();
 
-const port = process.env.PORT || 8080;
+const port = 8080;
 const nodeEnv = process.env.NODE_ENV;
 console.log(nodeEnv);
 
@@ -51,4 +51,6 @@ app.get('/products', (req, res) => {
 
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
+	console.log(`API URL: http://localhost:8080/products`);
+	console.log(`SiteURL: http://localhost:8080`);
 });
