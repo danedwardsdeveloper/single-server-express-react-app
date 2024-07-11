@@ -39,12 +39,83 @@ npm create vite@latest client -- --template react-ts
    });
    ```
 
--  Update `settings.json`
-   -  Add a proxy
-   -  Check start/build will work with Heroku
+You can now start the React app on its own with `npm start`
+
+However, to run the back- and front-ends together, you need to configure things a bit more.
+
+#### Run Front- and Back-Ends concurrently
+
+-  Build the React app first: (from /client) `npm run build`
+
+   -  This creates a `dist` directory in client
+
+-  Then configure the build settings in `root/package.json`
+
+   ```json
+   Settings
+
+   {
+      ...
+   "scripts": {
+    "start": "nodemon server/src/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only server/src/index.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm install && npm run build",
+    "build:server": "tsc",
+    "heroku-postbuild": "npm run build"
+   }
+   ...
+   }
+
+   ```
+
+-  Add a proxy to to the front-end to divert requests to the server **Wording???**
+
+```json
+
+// client/package.json
+{
+  ...,
+  "proxy": "http://localhost:8080",
+  ...,
+}
+```
+
+-  Serve the React app with Express
+   -  Ensure the path is correct
+
+```js
+// server/src/index.js
+
+// This line serves the React app using the build
+app.use(express.static(path.join(__dirname, '../../client/dist')));
+
+// This allows the server to handle API requests as long as they don't match the URL of a page. Then you have two options:
+app.get('*', (req, res, next) => {
+	// Display the raw data returned from the request
+	next();
+
+	// Display a static page instead (In this case the home page)
+	res.sendFile(path.join(__dirname, '../../client/dist', 'index.html'));
+});
+```
+
+-  Serve both parts of the app locally by running `npm run dev` from the project root
+
+_Screenshots..._
+
+With this method you can edit the server and it will reload to reflect your changes. However, the front-end is stuck how you left it when you ran the build command
+
+#### Local development with full hot reloading
+
+-  ???
 
 ### Getting ready to deploy
 
 -  Delete both `node_modules` folders, then run `npm i` in both root and client, to simulate how Heroku will build your app
 -  `procfile` should indicate the entry point (the server) `web: node server/index.js`
 -  Configure `package.json` so that both server and client are built and served/deployed
+
+```
+
+```
