@@ -69,6 +69,6 @@ app.get('/products', (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-	console.log(`API URL: http://localhost:8080/products`);
-	console.log(`SiteURL: http://localhost:8080`);
+	console.log(chalk.blue(`API URL: http://localhost:8080/products`));
+	console.log(chalk.blue(`SiteURL: http://localhost:8080`));
 });

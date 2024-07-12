@@ -33,7 +33,12 @@ File tree...
 -  Set environment variables
 -  Check that all variables have been imported
 -  Allow mixed JavaScript & TypeScript if you like:
+
    -  `tsconfig.json`:
+
+-  Check that all environment variables are set before starting the server
+-  For simplicity, use `VITE_NODE_ENV` for both front- and back-end (You have to prefix environment variables with `VITE_` when using Vite)
+   -  Force it to be set to either `production`, `dist` (Hotloading enabled on server, disabled on client), or `development` (Hotloading enabled on server & client)
 
 ### Client
 
