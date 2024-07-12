@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "commonjs",
+		"allowJs": true,
+		"checkJs": true,
+		"outDir": "./dist",
+		"rootDir": "./server",
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		"noImplicitAny": true
+	},
+	"include": ["server/src/**/*"],
+	"exclude": ["node_modules"]
+}
