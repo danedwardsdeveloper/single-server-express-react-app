@@ -5,7 +5,8 @@
 	"main": "server/dist/index.js",
 	"scripts": {
 		"start": "nodemon server/src/index.js",
-		"dev": "ts-node-dev --respawn --transpile-only server/src/index.ts",
+		"dev": "VITE_SERVER_MODE=dev ts-node-dev --respawn --transpile-only server/src/index.ts",
+		"prod": "VITE_SERVER_MODE=prod ts-node-dev --respawn --transpile-only server/src/index.ts",
 		"build": "npm run build:client && npm run build:server",
 		"build:client": "cd client && npm install && npm run build",
 		"build:server": "tsc",
