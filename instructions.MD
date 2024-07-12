@@ -16,9 +16,21 @@ File tree...
 -  Set up the project root
 
 -  Be careful with dependencies & development dependencies
+
    -  Pretty much all packages will need to be dependencies, except
       -  Nodemon (Only used in local development)
       -  dotenv (Most hosting platforms have built-in support for environment variables)
+
+-  Declare node and npm versions in `root/package.json`
+   ```json
+   {
+   	"name": "single-server-mern-app",
+   	"engines": {
+   		"node": "22.2.0",
+   		"npm": "10.8.1"
+   	}
+   }
+   ```
 
 ### Server
 
@@ -28,7 +40,9 @@ File tree...
    npm install typescript ts-node @types/node @types/express
    ```
 
-   Create an `index.ts` file in `server/src/`
+````
+
+Create an `index.ts` file in `server/src/`
 
 -  Set environment variables
 -  Check that all variables have been imported
@@ -171,3 +185,4 @@ With this method you can edit the server and it will reload to reflect your chan
 ```
 
 -  Move all development dependencies in `client/package.json` to regular dependencies
+````
