@@ -2,8 +2,21 @@
 
 ## To-Do List
 
+-  [ ] Create a global debug mode controlled by an environment variable
+-  [ ] Implement test that all environment variables are set and loaded before doing anything else
+-  [ ] Force `NODE_ENV` to be either 'production', 'development', or 'dist'
+
+   -  I'm not sure about those three names yet
+   -  Heroku will use 'production'
+   -  'development' is for when both parts are being served from separate terminals
+      -  Conditionally disable Express from serving the React app
+   -  'dist' is for when you build the React app with Vite, and serve both site parts from the Express server.
+
+   -  [ ] See if it's possible to make a 'dist' command that will start the React build, wait for it to finish, then start the Express server
+   -  [ ] See if it's possible to use 'development' mode with a single command
+      -  [ ] I'm not sure it's possible to get the terminal to open a new tab?
+
 -  [ ] Ensure seamless transition from local development to Heroku deployment.
-   -
 -  [ ] Implement TypeScript compiling
 -  [ ] Update this readme very carefully so that everything is accurate
 -  [ ] Turn this into an article on my blog because this has been very annoying to figure out and it's also the foundation of pretty much all my projects
