@@ -2,15 +2,14 @@
 	"name": "single-server-express-react-app",
 	"version": "1.0.0",
 	"description": "",
-	"main": "server/dist/index.js",
+	"main": "dist/src/index.js",
 	"engines": {
 		"node": "22.2.0",
 		"npm": "10.8.1"
 	},
 	"scripts": {
-		"start": "nodemon server/src/index.js",
+		"start": "node dist/src/index.js",
 		"dev": "VITE_SERVER_MODE=dev ts-node-dev --respawn --transpile-only server/src/index.ts",
-		"prod": "VITE_SERVER_MODE=prod ts-node-dev --respawn --transpile-only server/src/index.ts",
 		"build": "npm run build:client && npm run build:server",
 		"build:client": "cd client && npm install && npm run build",
 		"build:server": "tsc",
