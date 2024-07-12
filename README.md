@@ -1,10 +1,11 @@
 # single-server-express-react-app
 
+[Successful commit here](https://github.com/danedwardsdeveloper/single-server-express-react-app/blob/cce9af1dfed54838bbd8069cbd7a21765a8b624c/index.js)
+
 ## To-Do List
 
 -  [ ] Create a global debug mode controlled by an environment variable
--  [ ] Implement test that all environment variables are set and loaded before doing anything else
--  [ ] Force `NODE_ENV` to be either 'production', 'development', or 'dist'
+-  [ ] Force `VITE_NODE_ENV` to be either 'production', 'development', or 'dist'
 
    -  I'm not sure about those three names yet
    -  Heroku will use 'production'
