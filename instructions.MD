@@ -11,10 +11,29 @@ File tree...
 
 ```
 
+### Root
+
+-  Set up the project root
+
+-  Be careful with dependencies & development dependencies
+   -  Pretty much all packages will need to be dependencies, except
+      -  Nodemon (Only used in local development)
+      -  dotenv (Most hosting platforms have built-in support for environment variables)
+
 ### Server
+
+-  Install TypeScript and Express
+
+   ```bash
+   npm install typescript ts-node @types/node @types/express
+   ```
+
+   Create an `index.ts` file in `server/src/`
 
 -  Set environment variables
 -  Check that all variables have been imported
+-  Allow mixed JavaScript & TypeScript if you like:
+   -  `tsconfig.json`:
 
 ### Client
 
@@ -70,6 +89,7 @@ However, to run the back- and front-ends together, you need to configure things 
    ```
 
 -  Add a proxy to to the front-end to divert requests to the server **Wording???**
+-  This allows Express and Heroku to manage the proxy for the React app from the `dist` directory
 
 ```json
 
@@ -108,7 +128,32 @@ With this method you can edit the server and it will reload to reflect your chan
 
 #### Local development with full hot reloading
 
--  ???
+-  Start both parts separately using different terminals
+
+-  Add a proxy to `vite.config.ts`
+
+   ```ts
+   export default defineConfig({
+   	plugins: [react()],
+   	server: {
+   		port: 8080,
+   		// Add the proxy
+   		proxy: {
+   			'/products': {
+   				target: 'http://localhost:8080',
+   				changeOrigin: true,
+   				secure: false,
+   			},
+   		},
+   	},
+   });
+   ```
+
+-  Run `npm run dev` from the root command line
+-  Then, open another terminal tab, navigate into `client` and run `npm run dev`
+-  Hot reloading is then enabled for both parts of the site
+   -  Back-end using Nodemon
+   -  Front end using Vite
 
 ### Getting ready to deploy
 
