@@ -191,3 +191,9 @@ With this method you can edit the server and it will reload to reflect your chan
 
 -  Remember that this command uses the `dist` directories to serve the app
    -  So build both parts of the site before using the command
+
+### Deploy
+
+-  Test with Heroku Local first
+-  **Remember to commit and push to GitHub first, or you won't be deploying the latest version!**
+-  Consider ignoring TypeScript files, as they will just waste memory on the server
