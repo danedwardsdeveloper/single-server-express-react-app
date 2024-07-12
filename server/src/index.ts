@@ -37,18 +37,18 @@ if (missingEnvVars.length > 0) {
 debug(chalk.green('✅ All required environment variables are set.'));
 debug(chalk.green(`✅ VITE_SERVER_MODE set to: ${serverMode}`));
 
-const port = 8080;
-
 const clientBuildPath = path.resolve(__dirname, '../../client/dist');
 
-if (serverMode === 'prod') {
-	app.use(express.static(clientBuildPath));
-	app.get('*', (req, res) => {
-		if (!req.path.startsWith('/api/')) {
-			res.sendFile(path.join(clientBuildPath, 'index.html'));
-		}
-	});
-}
+app.use(express.static(clientBuildPath));
+
+app.get('/api/*', (req, res, next) => {
+	next();
+});
+
+app.get('*', (req, res, next) => {
+	next();
+});
+
 
 app.get('/api/products', (req: Request, res: Response) => {
 	const products = [
@@ -83,6 +83,8 @@ app.get('/api/products', (req: Request, res: Response) => {
 	];
 	res.json(products);
 });
+
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
 	debug(chalk.blue(`API URL: http://localhost:${port}/api/products`));
