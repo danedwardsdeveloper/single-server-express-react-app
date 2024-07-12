@@ -186,3 +186,8 @@ With this method you can edit the server and it will reload to reflect your chan
 
 -  Move all development dependencies in `client/package.json` to regular dependencies
 ````
+
+#### Test with `heroku local`
+
+-  Remember that this command uses the `dist` directories to serve the app
+   -  So build both parts of the site before using the command
