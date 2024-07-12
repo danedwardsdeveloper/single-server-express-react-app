@@ -169,3 +169,5 @@ With this method you can edit the server and it will reload to reflect your chan
 ```
 
 ```
+
+-  Move all development dependencies in `client/package.json` to regular dependencies
