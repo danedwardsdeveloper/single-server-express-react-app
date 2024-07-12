@@ -41,15 +41,6 @@ const clientBuildPath = path.resolve(__dirname, '../../client/dist');
 
 app.use(express.static(clientBuildPath));
 
-app.get('/api/*', (req, res, next) => {
-	next();
-});
-
-app.get('*', (req, res, next) => {
-	next();
-});
-
-
 app.get('/api/products', (req: Request, res: Response) => {
 	const products = [
 		{
@@ -84,8 +75,13 @@ app.get('/api/products', (req: Request, res: Response) => {
 	res.json(products);
 });
 
+app.get('*', (req: Request, res: Response, next) => {
+	next();
+});
+
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
 	debug(chalk.blue(`API URL: http://localhost:${port}/api/products`));
+	console.log(chalk.blue(`Server is running on port ${port}`));
 });
